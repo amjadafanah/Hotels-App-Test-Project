@@ -1,24 +1,26 @@
 ---
 parent: "example_v1_hotels_id"
-name: "ExampleV1HotelsIdPutAuthInvalid"
-description: "You have to provide a valid hotel ID in the URL and in the payload.\
-  \ The ID attribute can not be updated."
+name: "ExampleV1HotelsIdGetPathParamIdNullValue"
+description: "You have to provide a valid hotel ID."
 authors:
 - "FX Bot"
 type: "SUITE"
 init: []
-endpoint: "/example/v1/hotels/{{@Random}}"
-method: "PUT"
-auth: "Invalid_Auth"
+endpoint: "/example/v1/hotels/null"
+method: "GET"
+auth: "Default"
 headers:
 - "Accept: application/json"
 - "Content-Type: application/json"
 testCases: []
 assertions:
 - "@StatusCode != 200"
+- "@StatusCode != 401"
+- "@StatusCode != 404"
+- "@StatusCode != 500"
 cleanup: []
 severity: "Major"
-category: "InvalidAuth"
+category: "Negative"
 tags:
 - "V1"
 inactive: false

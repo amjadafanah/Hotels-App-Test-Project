@@ -18,7 +18,7 @@ assertions:
 - "@StatusCode != 200"
 cleanup: []
 severity: "Major"
-category: "UnSecured"
+category: "InvalidAuth"
 tags:
 - "V1"
 inactive: false

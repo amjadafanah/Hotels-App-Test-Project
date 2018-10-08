@@ -1,23 +1,24 @@
 ---
 parent: "example_v1_hotels_id"
-name: "ExampleV1HotelsIdGetAuthInvalid"
+name: "ExampleV1HotelsIdGetPathParamIdNegativeNumber"
 description: "You have to provide a valid hotel ID."
 authors:
 - "FX Bot"
 type: "SUITE"
 init: []
-endpoint: "/example/v1/hotels/{{@Random}}"
+endpoint: "/example/v1/hotels/{id}"
 method: "GET"
-auth: "Invalid_Auth"
+auth: "Default"
 headers:
 - "Accept: application/json"
 - "Content-Type: application/json"
 testCases: []
 assertions:
-- "@StatusCode != 200"
+- "@StatusCode != 401"
+- "@StatusCode != 404"
 cleanup: []
 severity: "Major"
-category: "InvalidAuth"
+category: "Negative"
 tags:
 - "V1"
 inactive: false
